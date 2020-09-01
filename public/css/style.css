@@ -1,0 +1,49 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+}
+
+.btn-primary {
+    background-color: #C46EB5;
+    border-color: #C46EB5;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #c146a1;
+    border-color: #C46EB5;
+}
+
+.cajas {
+    background-color: #5BC4BF;
+    padding: 5% 8% 2% 8%;
+    border-radius: 20px;
+}
+
+.cajas:hover {
+    background-color: #4AA6A1;
+}
+
+
+/* Home */
+
+.card-menu {
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: #5BC4BF;
+    border-radius: 100%;
+}
