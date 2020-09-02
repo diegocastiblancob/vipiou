@@ -28,7 +28,7 @@
                 </tbody>
 
             </table>
-            <a href="/propuestas" class="btn mb-5 float-right">Ver todas las
+            <a href="{{route('propuestas')}}" class="btn mb-5 float-right">Ver todas las
                 propuestas</a>
         </div>
     </div>

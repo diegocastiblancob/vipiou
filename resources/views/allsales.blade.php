@@ -26,7 +26,7 @@
                         <td>{{$sale->sale_credit}}</td>
                         <td>{{$sale->sale_date}}</td>
                         <td>
-                            <a href="venta/{{$sale->sale_id}}">Ver</a>
+                            <a href="{{route('venta.detalle', ['id'=>$sale->sale_id])}}">Ver</a>
                         </td>
                     </tr>
                     @endforeach

@@ -220,7 +220,7 @@
                                     <td>{{$customer->website_customer}}</td>
                                     <td>{{$customer->email_customer}}</td>
                                     <td>
-                                        <a href="cliente/{{$customer->id}}">Ver</a>
+                                        <a href="{{ route('cliente', ['id'=>$customer->id])}}">Ver</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -249,7 +249,7 @@
                                     <td>{{$customer->website_customer}}</td>
                                     <td>{{$customer->email_customer}}</td>
                                     <td>
-                                        <a href="cliente/{{$customer->id}}">Ver</a>
+                                        <a href="{{ route('cliente', ['id'=>$customer->id])}}">Ver</a>
                                     </td>
                                 </tr>
                                 @endforeach

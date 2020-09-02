@@ -24,7 +24,7 @@
                         <td>{{$task->description_task}}</td>
                         <td>{{$task->date_task}}</td>
                         <td>
-                            <a href="tarea/{{$task->task_id}}">Ver</a>
+                            <a href="{{route('tarea.detalle', ['id'=>$task->task_id])}}">Ver</a>
                         </td>
                     </tr>
                     @endforeach

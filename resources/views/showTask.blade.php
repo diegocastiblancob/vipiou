@@ -61,7 +61,7 @@
                             </td>
                             <td class="col-lg-1">
                                 <div class="form-group">
-                                    <a href="/accion/tarea/eliminar/{{$action->id}}" class="btn btn-secondary float-right">
+                                    <a href="{{route('acciontask.eliminar', ['id'=>$action->id])}}" class="btn btn-secondary float-right">
                                         X
                                     </a>
                                 </div>

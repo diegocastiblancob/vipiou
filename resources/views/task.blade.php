@@ -27,7 +27,7 @@
                         @endforeach
                 </tbody>
             </table>
-            <a class="btn btn-entrar mb-5 float-right" href="/tareas">Ver todos los
+            <a class="btn btn-entrar mb-5 float-right" href="{{route('tareas')}}">Ver todos los
                 proyectos</a>
         </div>
     </div>

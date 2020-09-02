@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Vipiou') }}</title>
+    <title>Vipiou</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -58,13 +58,13 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('cliente') }}">
+                                <a class="dropdown-item" href="{{ route('cliente') }}">
                                     {{ __('Clientes') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ url('propuesta') }}">
+                                <a class="dropdown-item" href="{{ route('propuesta') }}">
                                     {{ __('Propuestas') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ url('tarea') }}">
+                                <a class="dropdown-item" href="{{ route('tarea') }}">
                                     {{ __('Tareas') }}
                                 </a>
                             </div>
@@ -75,16 +75,16 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('venta') }}">
+                                <a class="dropdown-item" href="{{ route('venta') }}">
                                     {{ __('Ventas') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ url('egreso') }}">
+                                <a class="dropdown-item" href="{{ route('egreso') }}">
                                     {{ __('Egresos') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ url('ingreso') }}">
+                                <a class="dropdown-item" href="{{ route('ingreso') }}">
                                     {{ __('Ingresos') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ url('cartera') }}">
+                                <a class="dropdown-item" href="{{ route('cartera') }}">
                                     {{ __('Cartera') }}
                                 </a>
                             </div>
@@ -116,7 +116,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('cuenta') }}">
+                                <a class="dropdown-item" href="{{ route('cuenta') }}">
                                     {{ __('Mi cuenta') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

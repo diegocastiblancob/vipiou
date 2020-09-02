@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h3 class="text-center">Información del cliente</h3>
-            <a class="btn float-left" href="/cliente">Todos los clientes</a>
+            <a class="btn float-left" href="{{route('cliente')}}">Todos los clientes</a>
             <button class="btn float-right" data-toggle="modal" data-target="#ModalEditar">Editar información personal</button>
             <table class="table table-striped">
                 <thead>

@@ -23,7 +23,7 @@
                         <td>{{$proposal->description_proposal}}</td>
                         <td>{{$proposal->date_proposal}}</td>
                         <td>
-                            <a href="propuesta/{{$proposal->propasal_id}}">Ver</a>
+                            <a href="{{route('propuesta.detalle', ['id'=>$proposal->propasal_id])}}">Ver</a>
                         </td>
                     </tr>
                     @endforeach
