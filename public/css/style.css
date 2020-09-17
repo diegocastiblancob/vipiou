@@ -47,3 +47,24 @@ footer {
     background-color: #5BC4BF;
     border-radius: 100%;
 }
+
+.menu {
+    background-color: #43918D;
+}
+
+.dropdown-menu {
+    background-color: #43918D;
+    color: #ffffff;
+}
+
+.menuClientes {
+    margin-left: 25%;
+}
+
+.menuContabilidad {
+    margin-left: 300px;
+}
+
+.containerHome {
+    background-color: #4AA6A1;
+}

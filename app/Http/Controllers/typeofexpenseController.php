@@ -41,6 +41,6 @@ class typeofexpenseController extends Controller
         
         $typeofexpense->save();
 
-        return redirect()->route('egresos')->with(['message'=>'Categoria de egreso guardado correcatemente']);
+        return redirect()->route('egreso')->with(['message'=>'Categoria de egreso guardado correcatemente']);
     }
 }

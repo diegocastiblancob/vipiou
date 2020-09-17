@@ -84,7 +84,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'name_company' => $data['name_company'],
             'nit_company' => $data['nit_company'],
-            'logo_company' => 'logoDefault.png',
+            'logo_company' => 'default-logo.png',
             'owner_company' => $data['owner_company'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

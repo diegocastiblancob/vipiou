@@ -4,9 +4,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 mt-4">
             <a href="{{route('egreso')}}" class="btn mb-5 float-left">Nuevo egreso</a>
-            <button type="button" class="btn mb-5 float-right">Exportar a Excel</button>
+            <a href="{{url('/download/egresos')}}" class="btn float-right">Exportar a excel</a>
             <div class="contenido mt-5">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">

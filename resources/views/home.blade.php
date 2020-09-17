@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid containerHome">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <div class="image_logo p-5">
+                <img src="{{ route('loadimage', ['filename'=>Auth::user()->logo_company]) }}" class="w-100" alt="">
+                <p class="text-center text-light">
+                    Bienvenido {{ Auth::user()->name }} <span class="caret"></span>
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center mt-4">
         @if (session('status'))
@@ -40,7 +54,7 @@
                 <div class="card-body">
                     <a href="{{route('egresos')}}">
                         <div class="img-menu text-center">
-                            <img src="{{ url('/loadimage/egresos.png') }}" width="100" alt="">
+                            <img src="{{ url('/loadimage/Egresos.png') }}" width="100" alt="">
                         </div>
                         <h5 class="card-title text-center text-light mt-3">Egresos</h5>
                     </a>

@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <button type="button" class="btn mb-5 float-right">Exportar a Excel</button>
+            <a href="{{url('/download/ingresos')}}" class="btn float-right">Exportar a excel</a>
             <table class="table table-striped mt-5 mb-2">
                 <thead class="cabeza-tabla">
                     <tr>
@@ -20,7 +20,7 @@
                 <tbody>
 
                     @foreach($credits as $credit)
-                    @if($loop->index < 3) <tr>
+                    @if($loop->index < 4 and $credit->statu_fee == 'PAGO') <tr>
                         <th>{{$credit->name_customer}} {{$credit->name_customer}}</th>
                         <td>{{$credit->sale_target}}</td>
                         <td>{{$credit->no_fee}}</td>

@@ -139,10 +139,11 @@ class saleController extends Controller
 
         if ($sale_chec){
             foreach ($field_price_array as $value => $item) {
+                $fee_aux = $value+1;
                 $fee = $value;
                 $credit = new credit();
                 $credit->sale_id = $id_sale;
-                $credit->no_fee = 'Cuota '. $fee + 1;
+                $credit->no_fee = 'Cuota '. $fee_aux;
                 $credit->statu_fee = 'PENDIENTE';
                 $credit->date_expiration_fee = $field_date_array[$fee];
                 $credit->price_fee = $item;

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card cajas">
+            <div class="card cajas mt-5 mb-5">
                 <h4 class="text-center text-light">{{ __('Registrate en Vipiou') }}</h4>
 
                 <div class="card-body">

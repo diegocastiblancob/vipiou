@@ -1,5 +1,11 @@
 <?php
 
+use App\Exports\CustomersExport;
+use App\Exports\ExpensesExport;
+use App\Exports\incomesExport;
+use App\Exports\ProposalsExport;
+use App\Exports\SalesExport;
+use App\Exports\TasksExport;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -84,8 +90,8 @@ Route::get('/cobros-y-pagos', 'walletController@collectionandpayment')->name('co
 Route::get('/ingreso', 'incomeController@index')->name('ingreso');
 Route::get('/ingresos', 'incomeController@indexIncomes')->name('ingresos');
 Route::post('/ingreso/crear', 'incomeController@store')->name('ingreso.crear');
-
-Route::get('/loadimage/{filename}', 'imageController@getImage');
+//imagenes
+Route::get('/loadimage/{filename}', 'imageController@getImage')->name('loadimage');
 Route::post('/upload', 'imageController@upload');
 
 Route::get('/cuenta', 'mycountController@index')->name('cuenta');
@@ -97,3 +103,29 @@ Route::post('/confirmation', 'payuController@confirmation')->name('confirmation'
 
 //reportes
 Route::get('/reporte', 'reportController@index')->name('reporte');
+
+
+//exports a excel
+Route::get('/download/clientes', function(){
+    return (new CustomersExport)->download('clientes.xlsx');
+});
+
+Route::get('/download/propuestas', function(){
+    return (new ProposalsExport)->download('propuestas.xlsx');
+});
+
+Route::get('/download/tareas', function(){
+    return (new TasksExport)->download('tareas.xlsx');
+});
+
+Route::get('/download/ventas', function(){
+    return (new SalesExport)->download('ventas.xlsx');
+});
+
+Route::get('/download/egresos', function(){
+    return (new ExpensesExport)->download('egresos.xlsx');
+});
+
+Route::get('/download/ingresos', function(){
+    return (new incomesExport)->download('ingresos.xlsx');
+});

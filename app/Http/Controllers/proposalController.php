@@ -63,7 +63,7 @@ class proposalController extends Controller
     {
         $proposal = proposal::find($id)->load('customer', 'proposal_action');
 
-        return view('showProposal', ['proposal' => $proposal]);
+        return view('showproposal', ['proposal' => $proposal]);
     }
 
     /**
@@ -77,8 +77,8 @@ class proposalController extends Controller
         $title = $request->input('title_proposal');
         $date_proposal = $request->input('date_proposal');
         $description = $request->input('description_proposal');
-        $action = $request->input('proposal_action');
-        $date_action = $request->input('date_action');
+        $field_action_array = $_REQUEST['field_action'];
+        $field_date_array = $_REQUEST['field_date'];
 
         $proposal = new proposal();
         $proposal->customer_id = $id_customer;
@@ -89,12 +89,14 @@ class proposalController extends Controller
         $proposal->save();
         $id_proposal = $proposal->id;
 
-        $proposal_action = new proposal_action();
-        $proposal_action->proposal_id = $id_proposal;
-        $proposal_action->action_proposal = $action;
-        $proposal_action->date_action = $date_action;
-
-        $proposal_action->save();
+        foreach ($field_action_array as $value => $item) {
+            $fee = $value;
+            $proposal_action = new proposal_action();
+            $proposal_action->proposal_id = $id_proposal;
+            $proposal_action->action_proposal = $item;
+            $proposal_action->date_action = $field_date_array[$fee];
+            $proposal_action->save();
+        }
 
         return redirect()->route('propuesta')->with(['message' => 'Propuesta guardada correcatemente']);
     }

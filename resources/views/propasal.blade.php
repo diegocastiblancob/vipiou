@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <button type="button" class="btn mb-5 float-right" *ngIf="vertodas==true">Exportar a Excel</button>
+        <div class="col-12 mt-4">
+            <a href="{{url('/download/propuestas')}}" class="btn float-right">Exportar a excel</a>
             <table class="table table-striped mt-5">
                 <thead class="cabeza-tabla">
                     <tr>
@@ -16,15 +16,14 @@
                 </thead>
                 <tbody>
                     @foreach($proposals as $proposal)
-                    @if($loop->index < 3)
-                    <tr>
+                    @if($loop->index < 3) <tr>
                         <th>{{$proposal->name_customer}} {{$proposal->lastname_customer}}</th>
                         <td>{{$proposal->title_proposal}}</td>
                         <td>{{$proposal->description_proposal}}</td>
                         <td>{{$proposal->date_proposal}}</td>
-                    </tr>
-                    @endif
-                    @endforeach
+                        </tr>
+                        @endif
+                        @endforeach
                 </tbody>
 
             </table>
@@ -67,20 +66,18 @@
                         <textarea id="description_proposal" rows="4" class="form-control @error('description_proposal') is-invalid @enderror" name="description_proposal" required></textarea>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <a href="" class="text-light">Subir archivo</a>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <input id="proposal_action" type="text" class="form-control @error('proposal_action') is-invalid @enderror" name="proposal_action" placeholder="Titulo de la propuesta" required autocomplete="proposal_action" autofocus>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="" class="text-light">Selecionar fecha de notificación</label>
-                        <input id="date_action" type="date" class="form-control @error('date_action') is-invalid @enderror" name="date_action" required>
+
+                <div class="field_wrapper">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" name="field_action[]" placeholder="Proxima acción">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <input type="date" class="form-control" name="field_date[]">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <a href="javascript:void(0);" class="add_button btn btn-primary" title="Add field">+</a>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary float-right">Agregar propuesta</button>
@@ -89,5 +86,24 @@
         <div class="col-lg-3"></div>
     </div>
 </div>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        var maxField = 12; //Input fields increment limitation
+        var addButton = $('.add_button'); //Add button selector
+        var wrapper = $('.field_wrapper'); //Input field wrapper
+        var fieldHTML = '<div class="form-row"><div class="form-group col-md-6"><input type="text" class="form-control" name="field_action[]" placeholder="Proxima acción"></div><div class="form-group col-md-5"><input type="date" class="form-control" name="field_date[]"></div><div class="form-group col-md-1"><a href="javascript:void(0);" class="remove_button" title="Remove field">-</a></div></div>'; //New input field html 
+        var x = 1; //Initial field counter is 1
+        $(addButton).click(function() { //Once add button is clicked
+            if (x < maxField) { //Check maximum number of input fields
+                x++; //Increment field counter
+                $(wrapper).append(fieldHTML); // Add field html
+            }
+        });
+        $(wrapper).on('click', '.remove_button', function(e) { //Once remove button is clicked
+            e.preventDefault();
+            $(this).parent('div').remove(); //Remove field html
+            x--; //Decrement field counter
+        });
+    });
+</script>
 @endsection

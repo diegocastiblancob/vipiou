@@ -4,8 +4,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <button type="button" class="btn mb-5 float-right">Exportar a Excel</button>
+        <div class="col-12 mt-4">
+            <a href="{{url('/download/tareas')}}" class="btn float-right">Exportar a excel</a>
             <table class="table table-striped mt-5">
                 <thead class="cabeza-tabla">
                     <tr>
@@ -66,15 +66,19 @@
                         <textarea id="description_task" rows="4" class="form-control @error('description_task') is-invalid @enderror" name="description_task" required></textarea>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <input id="action_task" type="text" class="form-control @error('action_task') is-invalid @enderror" name="action_task" placeholder="Próxima actividad" required autocomplete="action_task" autofocus>
+                <div class="field_wrapper">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control" name="field_action[]" placeholder="Proxima actividad">
+                        </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="" class="text-light">Selecionar fecha de la actividad</label>
-                        <input id="date_action_task" type="date" class="form-control @error('date_action_task') is-invalid @enderror" name="date_action_task" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-10">
+                            <input type="date" class="form-control" name="field_date[]">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <a href="javascript:void(0);" class="add_button btn btn-primary float-right" title="Add field">+</a>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary float-right">Agregar
@@ -84,5 +88,24 @@
         <div class="col-lg-3"></div>
     </div>
 </div>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        var maxField = 12; //Input fields increment limitation
+        var addButton = $('.add_button'); //Add button selector
+        var wrapper = $('.field_wrapper'); //Input field wrapper
+        var fieldHTML = '<div class="form-row"><div class="form-group col-md-12"><input type="text" class="form-control" name="field_action[]" placeholder="Proxima actividad"></div></div><div class="form-row"><div class="form-group col-md-12"><input type="date" class="form-control" name="field_date[]"></div></div>'; //New input field html 
+        var x = 1; //Initial field counter is 1
+        $(addButton).click(function() { //Once add button is clicked
+            if (x < maxField) { //Check maximum number of input fields
+                x++; //Increment field counter
+                $(wrapper).append(fieldHTML); // Add field html
+            }
+        });
+        $(wrapper).on('click', '.remove_button', function(e) { //Once remove button is clicked
+            e.preventDefault();
+            $(this).parent('div').remove(); //Remove field html
+            x--; //Decrement field counter
+        });
+    });
+</script>
 @endsection

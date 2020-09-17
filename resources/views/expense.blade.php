@@ -4,8 +4,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <button type="button" class="btn mb-5 float-right">Exportar a Excel</button>
+        <div class="col-12 mt-5">
+            <a href="{{url('/download/egresos')}}" class="btn float-right">Exportar a excel</a>
             <table class="table table-striped mt-5">
                 <thead class="cabeza-tabla">
                     <tr>

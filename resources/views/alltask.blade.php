@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <a class="btn float-left mb-3" href="{{route('tarea')}}">Nueva tarea</a>
-            <button type="button" class="btn mb-5 float-right">Exportar a Excel</button>
+            <a href="{{url('/download/tareas')}}" class="btn float-right">Exportar a excel</a>
             <table class="table table-striped mt-5">
                 <thead class="cabeza-tabla">
                     <tr>

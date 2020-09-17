@@ -18,7 +18,7 @@
     <div class="row mb-5">
         <div class="col-lg-8">
             <h2 class="mt-2 mb-4">Información personal</h2>
-            <form method="POST" action="{{ route('user.update') }}">
+            <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombres') }}</label>
@@ -169,6 +169,33 @@
                         </span>
                         @enderror
                     </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Logo de la empresa') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="image_path" type="file" class="@error('image_path') is-invalid @enderror" name="image_path" required autocomplete="image_path">
+
+                        @error('image_path')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="image_logo text-center">
+                            <img src="{{ route('loadimage', ['filename'=>Auth::user()->logo_company]) }}" class="w-100" alt="">
+                            <p class="text-center text-light">
+                                Bienvenido {{ Auth::user()->name }} <span class="caret"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
                 </div>
 
                 <div class="form-group row mb-0">
