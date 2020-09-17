@@ -99,7 +99,7 @@ class taskController extends Controller
             $task_action->save();
         }
 
-        return redirect()->route('tarea')->with(['message' => 'Tarea guardada correcatemente']);
+        return redirect()->route('tarea')->with(['message' => 'Tarea guardada correctemente']);
     }
 
     /**

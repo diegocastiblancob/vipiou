@@ -100,7 +100,7 @@ class expenseController extends Controller
 
         $expense->save();
 
-        return redirect()->route('egreso')->with(['message' => 'Egresos guardado correcatemente']);
+        return redirect()->route('egreso')->with(['message' => 'Egreso guardado correctemente']);
     }
 
     /**
@@ -123,6 +123,6 @@ class expenseController extends Controller
 
         $expense->update();
 
-        return redirect()->route('egreso.detalle', ['id' => $id])->with(['message' => 'Egresos actualizado correcatemente']);
+        return redirect()->route('egreso.detalle', ['id' => $id])->with(['message' => 'Egreso actualizado correctemente']);
     }
 }

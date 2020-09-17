@@ -80,6 +80,6 @@ class incomeController extends Controller
 
         $otherincome->save();
 
-        return redirect()->route('ingreso')->with(['message' => 'Ingreso guardado correcatemente']);   
+        return redirect()->route('ingreso')->with(['message' => 'Ingreso guardado correctemente']);   
     }
 }

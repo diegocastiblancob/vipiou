@@ -151,7 +151,7 @@ class saleController extends Controller
             }
         }
 
-        return redirect()->route('ventas')->with(['message' => 'Venta guardada correcatemente']);
+        return redirect()->route('ventas')->with(['message' => 'Venta guardada correctemente']);
     }
 
     /**

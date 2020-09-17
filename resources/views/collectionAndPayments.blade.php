@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="mt-3">Proximos cobros</h2>
+            <h2 class="mt-3">Próximos cobros</h2>
             <table class="table table-striped mt-2 mb-5">
                 <thead class="cabeza-tabla">
                     <tr>
@@ -30,6 +30,7 @@
                     @endforeach
                 </tbody>
             </table>
+            <h2 class="mt-3">Próximos pagos</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>

@@ -24,7 +24,7 @@ class actionProposalController extends Controller
 
         $proposal_action->save();
 
-        return redirect()->route('propuesta.detalle', ['id'=>$id_proposal])->with(['message' => 'Accion guardada correcatemente']);
+        return redirect()->route('propuesta.detalle', ['id'=>$id_proposal])->with(['message' => 'Acción guardada correctemente']);
     }
 
     /**
@@ -44,7 +44,7 @@ class actionProposalController extends Controller
 
         $proposal_action->update();
 
-        return redirect()->route('propuesta.detalle', ['id'=>$id_proposal])->with(['message' => 'Accion actualizada correcatemente']);
+        return redirect()->route('propuesta.detalle', ['id'=>$id_proposal])->with(['message' => 'Acción actualizada correctemente']);
     }
 
     /**

@@ -125,7 +125,7 @@ class customerController extends Controller
             }
         }
 
-        return redirect()->route('cliente')->with(['message' => 'Cliente guardado correcatemente']);
+        return redirect()->route('cliente')->with(['message' => 'Cliente guardado correctemente']);
     }
 
     /**

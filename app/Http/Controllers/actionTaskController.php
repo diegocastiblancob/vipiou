@@ -23,7 +23,7 @@ class actionTaskController extends Controller
         $task_action->date_action_task=$date_action;
         $task_action->save();
 
-        return redirect()->route('tarea.detalle', ['id'=>$id_task])->with(['message' => 'Accion guardada correcatemente']);
+        return redirect()->route('tarea.detalle', ['id'=>$id_task])->with(['message' => 'Acción guardada correctemente']);
     }
 
     /**
@@ -42,7 +42,7 @@ class actionTaskController extends Controller
         $task_action->date_action_task=$date_action;
         $task_action->update();
 
-        return redirect()->route('tarea.detalle', ['id'=>$id_task])->with(['message' => 'Accion actualizada correcatemente']);
+        return redirect()->route('tarea.detalle', ['id'=>$id_task])->with(['message' => 'Acción actualizada correctemente']);
     }
 
     /**
