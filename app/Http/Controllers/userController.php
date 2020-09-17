@@ -63,6 +63,6 @@ class userController extends Controller
         
         $user->update();
 
-        return redirect()->route('cuenta')->with(['message'=>'Informacion actualizada correcatemente']);
+        return redirect()->route('cuenta')->with(['message'=>'Información actualizada correctemente']);
     }
 }

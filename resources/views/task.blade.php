@@ -10,7 +10,7 @@
                 <thead class="cabeza-tabla">
                     <tr>
                         <th scope="col">Cliente</th>
-                        <th scope="col">Proyecto</th>
+                        <th scope="col">Tarea</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Fecha Entrega</th>
                     </tr>
@@ -28,7 +28,7 @@
                 </tbody>
             </table>
             <a class="btn btn-entrar mb-5 float-right" href="{{route('tareas')}}">Ver todos los
-                proyectos</a>
+                tareas</a>
         </div>
     </div>
     <div class="row">
@@ -41,7 +41,7 @@
             @endif
             <form method="POST" action="{{ route('tarea.crear') }}">
                 @csrf
-                <h2 class="text-light text-center">Detalle de proyecto</h2>
+                <h2 class="text-light text-center">Detalle de tarea</h2>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="" class="text-light">Selecionar cliente</label>

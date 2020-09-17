@@ -98,7 +98,7 @@ class proposalController extends Controller
             $proposal_action->save();
         }
 
-        return redirect()->route('propuesta')->with(['message' => 'Propuesta guardada correcatemente']);
+        return redirect()->route('propuesta')->with(['message' => 'Propuesta guardada correctemente']);
     }
 
     /**
