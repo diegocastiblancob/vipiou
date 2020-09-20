@@ -48,7 +48,8 @@
                     <div class="form-group col-md-12">
                         <label for="" class="text-light">Selecionar Categoria</label>
                         <select class="form-control" id="name_type_expense" name="name_type_expense" required>
-                            <option value="0" hidden></option>
+                            <option value="" hidden></option>
+                            <option value="Servicios">Servicios</option>
                             @foreach($typesExpenses as $typesExpense)
                             <option value="{{$typesExpense->name_type_expenses}}">{{$typesExpense->name_type_expenses}}</option>
                             @endforeach

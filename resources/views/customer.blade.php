@@ -61,16 +61,16 @@
                 <h3 class="text-light text-center">Registrar datos del nuevo cliente</h3>
                 <div class="form-row mt-3">
                     <div class="input-group mb-3 col-md-6">
-                        <input id="name_customer" type="text" class="form-control @error('name_customer') is-invalid @enderror" name="name_customer" placeholder="Nombre del cliente" required autocomplete="name_customer" autofocus>
-                        @error('name_customer')
+                        <input id="nombre_cliente" type="text" class="form-control @error('nombre_cliente') is-invalid @enderror" name="nombre_cliente" placeholder="Nombre del cliente" required autocomplete="nombre_cliente" autofocus>
+                        @error('nombre_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="input-group mb-3 col-md-6">
-                        <input id="lastname_customer" type="text" class="form-control @error('lastname_customer') is-invalid @enderror" name="lastname_customer" placeholder="Apellido del cliente" required autocomplete="lastname_customer" autofocus>
-                        @error('lastname_customer')
+                        <input id="apellido_cliente" type="text" class="form-control @error('apellido_cliente') is-invalid @enderror" name="apellido_cliente" placeholder="Apellido del cliente" required autocomplete="apellido_cliente" autofocus>
+                        @error('apellido_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -79,16 +79,16 @@
                 </div>
                 <div class="form-row">
                     <div class="input-group mb-3 col-md-6" include="form-input-select()">
-                        <input id="identification_customer" type="text" class="form-control @error('identification_customer') is-invalid @enderror" name="identification_customer" placeholder="Identificación del cliente" required autocomplete="identification_customer" autofocus>
-                        @error('identification_customer')
+                        <input id="identificacion_cliente" type="text" class="form-control @error('identificacion_cliente') is-invalid @enderror" name="identificacion_cliente" placeholder="Identificación del cliente" required autocomplete="identificacion_cliente" autofocus>
+                        @error('identificacion_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="input-group mb-3 col-md-6">
-                        <input id="city_customer" type="text" class="form-control @error('city_customer') is-invalid @enderror" name="city_customer" placeholder="Ciudad del cliente" required autocomplete="city_customer" autofocus>
-                        @error('city_customer')
+                        <input id="ciudad_cliente" type="text" class="form-control @error('ciudad_cliente') is-invalid @enderror" name="ciudad_cliente" placeholder="Ciudad del cliente" required autocomplete="ciudad_cliente" autofocus>
+                        @error('ciudad_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -97,16 +97,16 @@
                 </div>
                 <div class="form-row">
                     <div class="input-group mb-3 col-md-6">
-                        <input id="address_customer" type="text" class="form-control @error('address_customer') is-invalid @enderror" name="address_customer" placeholder="Dirección del cliente" required autocomplete="address_customer" autofocus>
-                        @error('address_customer')
+                        <input id="direccion_cliente" type="text" class="form-control @error('direccion_cliente') is-invalid @enderror" name="direccion_cliente" placeholder="Dirección del cliente" autocomplete="direccion_cliente" autofocus>
+                        @error('direccion_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="input-group mb-3 col-md-6">
-                        <input id="phone_customer" type="text" class="form-control @error('phone_customer') is-invalid @enderror" name="phone_customer" placeholder="Teléfono del cliente" required autocomplete="phone_customer" autofocus>
-                        @error('phone_customer')
+                        <input id="telefono_cliente" type="text" class="form-control @error('telefono_cliente') is-invalid @enderror" name="telefono_cliente" placeholder="Teléfono del cliente" required autocomplete="telefono_cliente" autofocus>
+                        @error('telefono_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -123,8 +123,8 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3 col-md-6">
-                        <input id="company_customer" type="text" class="form-control @error('company_customer') is-invalid @enderror" name="company_customer" placeholder="Empresa del cliente" required autocomplete="company_customer" autofocus>
-                        @error('company_customer')
+                        <input id="empresa_cliente" type="text" class="form-control @error('empresa_cliente') is-invalid @enderror" name="empresa_cliente" placeholder="Empresa del cliente" autocomplete="empresa_cliente" autofocus>
+                        @error('empresa_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -133,20 +133,20 @@
                 </div>
                 <div class="form-row">
                     <div class="input-group mb-3 col-md-6">
-                        <input id="website_customer" type="text" class="form-control @error('website_customer') is-invalid @enderror" name="website_customer" placeholder="Sitio web" required autocomplete="website_customer" autofocus>
-                        @error('website_customer')
+                        <input id="website_cliente" type="text" class="form-control @error('website_cliente') is-invalid @enderror" name="website_cliente" placeholder="Sitio web" autocomplete="website_cliente" autofocus>
+                        @error('website_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="input-group mb-3 col-md-6">
-                        <select id="status_customer" type="text" class="form-control @error('status_customer') is-invalid @enderror" name="status_customer" required>
-                            <option value="0" hidden>Estado Del Cliente</option>
+                        <select id="estado_cliente" type="text" class="form-control @error('estado_cliente') is-invalid @enderror" name="estado_cliente" required>
+                            <option value="" hidden>Estado Del Cliente</option>
                             <option value="2">Cliente</option>
                             <option value="3">Cliente potencial</option>
                         </select>
-                        @error('status_customer')
+                        @error('estado_cliente')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -166,16 +166,16 @@
                     <h3 class="text-light text-center">Detalle de propuesta comercial</h3>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="title_proposal" type="text" class="form-control @error('title_proposal') is-invalid @enderror" name="title_proposal" placeholder="Titulo de la propuesta" autocomplete="title_proposal" autofocus>
-                            @error('title_proposal')
+                            <input id="titulo_propuesta" type="text" class="form-control @error('titulo_propuesta') is-invalid @enderror" name="titulo_propuesta" placeholder="Titulo de la propuesta" autocomplete="titulo_propuesta" autofocus>
+                            @error('titulo_propuesta')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="date_proposal" type="date" class="form-control @error('date_proposal') is-invalid @enderror" name="date_proposal">
-                            @error('date_proposal')
+                            <input id="fecha_propuesta" type="date" class="form-control @error('fecha_propuesta') is-invalid @enderror" name="fecha_propuesta">
+                            @error('fecha_propuesta')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -184,8 +184,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <textarea id="description_proposal" rows="4" class="form-control @error('description_proposal') is-invalid @enderror" name="description_proposal"></textarea>
-                            @error('description_proposal')
+                            <textarea id="descripcion_propuesta" rows="4" class="form-control @error('descripcion_propuesta') is-invalid @enderror" name="descripcion_propuesta"></textarea>
+                            @error('descripcion_propuesta')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

@@ -77,21 +77,40 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="sale_target" type="text" class="form-control @error('sale_target') is-invalid @enderror" name="sale_target" value="{{$sale->sale_target}}" required autocomplete="sale_target" autofocus>
+                            <input id="titulo_venta" type="text" class="form-control @error('titulo_venta') is-invalid @enderror" name="titulo_venta" value="{{$sale->sale_target}}" required autofocus>
+                            @error('titulo_venta')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="sale_date" type="date" class="form-control @error('sale_date') is-invalid @enderror" name="sale_date" value="{{$sale->sale_date}}" required autocomplete="sale_date" autofocus>
+                            <input id="fecha_venta" type="date" class="form-control @error('fecha_venta') is-invalid @enderror" name="fecha_venta" value="{{$sale->sale_date}}" required autofocus>
+                            @error('fecha_venta')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <textarea id="sale_description" rows="4" class="form-control @error('sale_description') is-invalid @enderror" name="sale_description" value="{{$sale->sale_description}}" required>
-                        </textarea>
+                            <textarea id="descripcion_venta" rows="4" class="form-control @error('descripcion_venta') is-invalid @enderror" name="descripcion_venta" required>{{$sale->sale_description}}</textarea>
+                            @error('descripcion_venta')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <input id="sale_price" type="text" class="form-control @error('sale_price') is-invalid @enderror" name="sale_price" value="{{$sale->sale_price}}" required autocomplete="sale_price" autofocus>
+                            <input id="precio_venta" type="text" class="form-control @error('precio_venta') is-invalid @enderror" name="precio_venta" value="{{$sale->sale_price}}" required autofocus>
+                            @error('precio_venta')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
 

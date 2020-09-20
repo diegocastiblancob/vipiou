@@ -73,10 +73,17 @@ class proposalController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'id_customer' => ['required', 'numeric'],
+            'titulo_propuesta' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_propuesta' => ['required'],
+            'descripcion_propuesta' => ['required']
+        ]);
+
         $id_customer = $request->input('id_customer');
-        $title = $request->input('title_proposal');
-        $date_proposal = $request->input('date_proposal');
-        $description = $request->input('description_proposal');
+        $title = $request->input('titulo_propuesta');
+        $date_proposal = $request->input('fecha_propuesta');
+        $description = $request->input('descripcion_propuesta');
         $field_action_array = $_REQUEST['field_action'];
         $field_date_array = $_REQUEST['field_date'];
 
@@ -85,17 +92,18 @@ class proposalController extends Controller
         $proposal->title_proposal = $title;
         $proposal->date_proposal = $date_proposal;
         $proposal->description_proposal = $description;
-
+        
         $proposal->save();
         $id_proposal = $proposal->id;
-
-        foreach ($field_action_array as $value => $item) {
-            $fee = $value;
-            $proposal_action = new proposal_action();
-            $proposal_action->proposal_id = $id_proposal;
-            $proposal_action->action_proposal = $item;
-            $proposal_action->date_action = $field_date_array[$fee];
-            $proposal_action->save();
+        if (!empty($field_action_array) && $id_proposal) {
+            foreach ($field_action_array as $value => $item) {
+                $fee = $value;
+                $proposal_action = new proposal_action();
+                $proposal_action->proposal_id = $id_proposal;
+                $proposal_action->action_proposal = $item;
+                $proposal_action->date_action = $field_date_array[$fee];
+                $proposal_action->save();
+            }
         }
 
         return redirect()->route('propuesta')->with(['message' => 'Propuesta guardada correctemente']);
@@ -110,14 +118,14 @@ class proposalController extends Controller
     {
 
         $this->validate($request, [
-            'title_proposal' => 'required',
-            'date_proposal' => 'required',
-            'description_proposal' => 'required'
+            'titulo_propuesta' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_propuesta' => ['required'],
+            'descripcion_propuesta' => ['required']
         ]);
-        
-        $title = $request->input('title_proposal');
-        $date_proposal = $request->input('date_proposal');
-        $description = $request->input('description_proposal');
+
+        $title = $request->input('titulo_propuesta');
+        $date_proposal = $request->input('fecha_propuesta');
+        $description = $request->input('descripcion_propuesta');
 
         $proposal = proposal::find($id_proposal);
         $proposal->id = $id_proposal;
@@ -125,7 +133,7 @@ class proposalController extends Controller
         $proposal->date_proposal = $date_proposal;
         $proposal->description_proposal = $description;
         $proposal->file_proposal = '';
-
+        
         $proposal->update();
         return redirect()->route('propuesta.detalle', ['id' => $id_proposal]);
     }

@@ -62,7 +62,7 @@ class taskController extends Controller
     public function show($id)
     {
         $task = task::find($id)->load('customer', 'task_action');
-
+        
         return view('showTask', ['task' => $task]);
     }
 
@@ -73,11 +73,17 @@ class taskController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'titulo_tarea' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_tarea' => ['required'],
+            'descripcion_tarea' => ['required']
+        ]);
+
         $id_customer = $request->input('id_customer');
-        $title = $request->input('title_task');
-        $date_task = $request->input('date_task');
-        $description = $request->input('description_task');
-       
+        $title = $request->input('titulo_tarea');
+        $date_task = $request->input('fecha_tarea');
+        $description = $request->input('descripcion_tarea');
+
         $field_action_array = $_REQUEST['field_action'];
         $field_date_array = $_REQUEST['field_date'];
 
@@ -89,14 +95,15 @@ class taskController extends Controller
         $task->status_task = 1;
         $task->save();
         $id_task = $task->id;
-
-        foreach ($field_action_array as $value => $item) {
-            $fee = $value;
-            $task_action = new task_action();
-            $task_action->task_id = $id_task;
-            $task_action->action_task = $item;
-            $task_action->date_action_task = $field_date_array[$fee];
-            $task_action->save();
+        if (!empty($field_action_array) && $id_task) {
+            foreach ($field_action_array as $value => $item) {
+                $fee = $value;
+                $task_action = new task_action();
+                $task_action->task_id = $id_task;
+                $task_action->action_task = $item;
+                $task_action->date_action_task = $field_date_array[$fee];
+                $task_action->save();
+            }
         }
 
         return redirect()->route('tarea')->with(['message' => 'Tarea guardada correctemente']);
@@ -109,11 +116,15 @@ class taskController extends Controller
      */
     public function update(Request $request, $id_task)
     {
+        $this->validate($request, [
+            'titulo_tarea' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_tarea' => ['required'],
+            'descripcion_tarea' => ['required']
+        ]);
 
-
-        $title = $request->input('title_task');
-        $date_task = $request->input('date_task');
-        $description = $request->input('description_task');
+        $title = $request->input('titulo_tarea');
+        $date_task = $request->input('fecha_tarea');
+        $description = $request->input('descripcion_tarea');
 
         $task = task::find($id_task);
         $task->id = $id_task;

@@ -46,24 +46,44 @@
                     <div class="form-group col-md-12">
                         <label for="" class="text-light">Selecionar cliente</label>
                         <select class="form-control" id="id_customer" name="id_customer" required>
-                            <option value="0" hidden></option>
+                            <option value="" hidden></option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}">{{$customer->name_customer}} {{$customer->lastname_customer}}</option>
                             @endforeach
                         </select>
+                        @error('id_customer')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="title_proposal" type="text" class="form-control @error('title_proposal') is-invalid @enderror" name="title_proposal" placeholder="Titulo de la propuesta" required autocomplete="title_proposal" autofocus>
+                        <input id="titulo_propuesta" type="text" class="form-control @error('titulo_propuesta') is-invalid @enderror" name="titulo_propuesta" placeholder="Titulo de la propuesta" required autocomplete="titulo_propuesta" autofocus>
+                        @error('titulo_propuesta')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <input id="date_proposal" type="date" class="form-control @error('date_proposal') is-invalid @enderror" name="date_proposal" required>
+                        <input id="fecha_propuesta" type="date" class="form-control @error('fecha_propuesta') is-invalid @enderror" name="fecha_propuesta" required>
+                        @error('fecha_propuesta')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <textarea id="description_proposal" rows="4" class="form-control @error('description_proposal') is-invalid @enderror" name="description_proposal" required></textarea>
+                        <textarea id="descripcion_propuesta" rows="4" class="form-control @error('descripcion_propuesta') is-invalid @enderror" name="descripcion_propuesta" required></textarea>
+                        @error('descripcion_propuesta')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
 

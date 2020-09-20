@@ -87,6 +87,24 @@
                         </li>
                         @endif
                         @else
+                        <li class="nav-item mr-3">
+                            <a class="nav-link" href="{{ route('home') }}">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <a class="nav-link" href="{{ route('cliente') }}">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                Clientes
+                            </a>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <a class="nav-link" href="{{ route('venta') }}">
+                                <i class="fas fa-money" aria-hidden="true"></i>
+                                Ventas
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fa fa-user-circle" aria-hidden="true"></i>

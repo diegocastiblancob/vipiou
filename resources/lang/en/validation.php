@@ -96,7 +96,7 @@ return [
     'password' => 'La contraseña es incorrecta.',
     'present' => 'El campo de :attribute debe estar presente.',
     'regex' => 'El formato de :attribute no es válido.',
-    'required' => 'El :attribute de atributo es obligatorio.',
+    'required' => 'El :attribute es obligatorio.',
     'required_if' => 'El campo :attribute es obligatorio cuando :other es :value.',
     'required_unless' => 'El campo de :attribute es obligatorio a menos que: other esté en :values.',
     'required_with' => 'El campo de :attribute es obligatorio cuando :values está presente.',

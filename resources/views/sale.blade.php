@@ -48,30 +48,54 @@
                     <div class="form-group col-md-12">
                         <label for="" class="text-light">Selecionar Cliente</label>
                         <select class="form-control" id="id_customer" name="id_customer" required>
-                            <option value="0" hidden></option>
+                            <option value="" hidden></option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}">{{$customer->name_customer}} {{$customer->lastname_customer}}</option>
                             @endforeach
                         </select>
+                        @error('id_customer')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="sale_target" type="text" class="form-control @error('sale_target') is-invalid @enderror" name="sale_target" placeholder="Nombre de la tarea" required autocomplete="sale_target" autofocus>
+                        <input id="titulo_venta" type="text" class="form-control @error('titulo_venta') is-invalid @enderror" name="titulo_venta" placeholder="Nombre de la tarea" required autocomplete="titulo_venta" autofocus>
+                        @error('titulo_venta')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <input id="sale_date" type="date" class="form-control @error('sale_date') is-invalid @enderror" name="sale_date" placeholder="Nombre de la tarea" required autocomplete="sale_date" autofocus>
+                        <input id="fecha_venta" type="date" class="form-control @error('fecha_venta') is-invalid @enderror" name="fecha_venta" placeholder="Nombre de la tarea" required autocomplete="fecha_venta" autofocus>
+                        @error('fecha_venta')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <textarea id="sale_description" rows="4" class="form-control @error('sale_description') is-invalid @enderror" name="sale_description" required>
-                        </textarea>
+                        <textarea id="descripcion_venta" rows="4" class="form-control @error('descripcion_venta') is-invalid @enderror" name="descripcion_venta" required></textarea>
+                        @error('descripcion_venta')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <input id="sale_price" type="text" class="form-control @error('sale_price') is-invalid @enderror" name="sale_price" placeholder="Precio venta" required autocomplete="sale_price" autofocus>
+                        <input id="precio_venta" type="text" class="form-control @error('precio_venta') is-invalid @enderror" name="precio_venta" placeholder="Precio venta" required autocomplete="precio_venta" autofocus>
+                        @error('precio_venta')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group">
@@ -86,10 +110,20 @@
                     <h2 class="text-light text-center">Detalle de Financiación</h2>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="initial_fee" type="text" class="form-control @error('initial_fee') is-invalid @enderror" name="initial_fee" placeholder="Cuota inicial" autocomplete="initial_fee" autofocus>
+                            <input id="cuota_inicial" type="text" class="form-control @error('cuota_inicial') is-invalid @enderror" name="cuota_inicial" placeholder="Cuota inicial" autocomplete="cuota_inicial" autofocus>
+                            @error('cuota_inicial')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="no_fees" type="text" class="form-control @error('no_fees') is-invalid @enderror" name="no_fees" placeholder="No. de cuotas" autocomplete="no_fees" autofocus>
+                            <input id="no_cuota" type="text" class="form-control @error('no_cuota') is-invalid @enderror" name="no_cuota" placeholder="No. de cuotas" autocomplete="no_cuota" autofocus>
+                            @error('no_cuota')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="field_wrapper">

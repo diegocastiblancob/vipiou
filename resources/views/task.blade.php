@@ -46,24 +46,44 @@
                     <div class="form-group col-md-12">
                         <label for="" class="text-light">Selecionar cliente</label>
                         <select class="form-control" id="id_customer" name="id_customer" required>
-                            <option value="0" hidden></option>
+                            <option value="" hidden></option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}">{{$customer->name_customer}} {{$customer->lastname_customer}}</option>
                             @endforeach
                         </select>
+                        @error('id_customer')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="title_task" type="text" class="form-control @error('title_task') is-invalid @enderror" name="title_task" placeholder="Nombre de la tarea" required autocomplete="title_task" autofocus>
+                        <input id="titulo_tarea" type="text" class="form-control @error('titulo_tarea') is-invalid @enderror" name="titulo_tarea" placeholder="Nombre de la tarea" required autocomplete="titulo_tarea" autofocus>
+                        @error('titulo_tarea')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <input id="date_task" type="date" class="form-control @error('date_task') is-invalid @enderror" name="date_task" required>
+                        <input id="fecha_tarea" type="date" class="form-control @error('fecha_tarea') is-invalid @enderror" name="fecha_tarea" required>
+                        @error('fecha_tarea')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <textarea id="description_task" rows="4" class="form-control @error('description_task') is-invalid @enderror" name="description_task" required></textarea>
+                        <textarea id="descripcion_tarea" rows="4" class="form-control @error('descripcion_tarea') is-invalid @enderror" name="descripcion_tarea" required></textarea>
+                        @error('descripcion_tarea')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="field_wrapper">

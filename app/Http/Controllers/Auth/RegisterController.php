@@ -51,14 +51,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
-            'identification' => ['required', 'integer', 'min:6'],
-            'city' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:255'],
+            'lastname' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:255'],
+            'identification' => ['required', 'numeric'],
+            'city' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:10'],
-            'name_company' => ['required', 'string', 'max:255'],
-            'nit_company' => ['required', 'integer', 'min:8'],
+            'phone' => ['required', 'numeric', 'max:10'],
+            'name_company' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:255'],
+            'nit_company' => ['required', 'numeric'],
             'owner_company' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed']

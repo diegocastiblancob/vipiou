@@ -23,14 +23,14 @@
                         <th scope="col">Descripción</th>
                         <td colspan="3">{{$proposal->description_proposal}}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th scope="col">Ver Archivo Adjunto</th>
                         <td colspan="3">
                             <button type="button" class="btn">
                                 <i class="fa fa-file float-left" style="color:#5BC4BF; font-size:30px" aria-hidden="true"></i>
                             </button>
                         </td>
-                    </tr>
+                    </tr> -->
                 </thead>
             </table>
             <table class="table mt-4">
@@ -118,7 +118,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="actualizar/{{$proposal->id}}">
+                <form method="POST" action="{{ route('propuesta.actualizar', ['id' => $proposal->id]) }}">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-12">
@@ -128,20 +128,35 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="title_proposal" type="text" class="form-control @error('title_proposal') is-invalid @enderror" name="title_proposal" value="{{$proposal->title_proposal}}" required autocomplete="title_proposal" autofocus>
+                            <input id="titulo_propuesta" type="text" class="form-control @error('titulo_propuesta') is-invalid @enderror" name="titulo_propuesta" value="{{$proposal->title_proposal}}" required autofocus>
+                            @error('titulo_propuesta')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="date_proposal" type="date" class="form-control @error('date_proposal') is-invalid @enderror" name="date_proposal" value="{{$proposal->date_proposal}}" required>
+                            <input id="fecha_propuesta" type="date" class="form-control @error('fecha_propuesta') is-invalid @enderror" name="fecha_propuesta" value="{{$proposal->date_proposal}}" required>
+                            @error('fecha_propuesta')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <textarea id="description_proposal" rows="4" class="form-control @error('description_proposal') is-invalid @enderror" name="description_proposal" value="{{$proposal->description_proposal}}" required></textarea>
+                            <textarea id="descripcion_propuesta" rows="4" class="form-control @error('descripcion_propuesta') is-invalid @enderror" name="descripcion_propuesta" required>{{$proposal->description_proposal}}</textarea>
+                            @error('descripcion_propuesta')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <a href="" class="">Subir archivo</a>
+                            <!-- <a href="" class="">Subir archivo</a> -->
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Agregar propuesta</button>

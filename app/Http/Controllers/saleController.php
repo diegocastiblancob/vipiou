@@ -66,8 +66,6 @@ class saleController extends Controller
     public function show($id)
     {
         $sale = sale::find($id)->load('customer', 'credit');
-        //print_r($sale);
-
         return view('showSale', ['sale' => $sale]);
     }
 
@@ -78,16 +76,23 @@ class saleController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'id_customer' => ['required', 'numeric'],
+            'titulo_venta' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_venta' => ['required', 'date'],
+            'descripcion_venta' => ['required'],
+            'precio_venta' => ['required', 'numeric']
+        ]);
         //CHEC DE VALIDACION PARA FINANCIAMIENTO
         $sale_chec = $request->input('chec');
         //RECOGER DATOS DE FORMULRIO
         $id_customer = $request->input('id_customer');
-        $sale_target = $request->input('sale_target');
-        $sale_date = $request->input('sale_date');
-        $sale_description = $request->input('sale_description');
-        $sale_price = $request->input('sale_price');
-        $initial_fee = $request->input('initial_fee');
-        $no_fees = $request->input('no_fees');
+        $sale_target = $request->input('titulo_venta');
+        $sale_date = $request->input('fecha_venta');
+        $sale_description = $request->input('descripcion_venta');
+        $sale_price = $request->input('precio_venta');
+        $initial_fee = $request->input('cuota_inicial');
+        $no_fees = $request->input('no_cuota');
         $field_price_array = $_REQUEST['field_price'];
         $field_date_array = $_REQUEST['field_date'];
 
@@ -102,6 +107,10 @@ class saleController extends Controller
 
         //var_dump($sale_chec);die();
         if ($sale_chec) {
+            $this->validate($request, [
+                'cuota_inicial' => ['required', 'numeric'],
+                'no_cuota' => ['required', 'numeric', 'max:36']
+            ]);
             $sale->sale_credit = 'SI';
             $sale->initial_fee = $initial_fee;
             $sale->no_fees = $no_fees;
@@ -137,13 +146,13 @@ class saleController extends Controller
             $credit->save();
         };
 
-        if ($sale_chec){
+        if ($sale_chec && !empty($field_action_array)) {
             foreach ($field_price_array as $value => $item) {
-                $fee_aux = $value+1;
+                $fee_aux = $value + 1;
                 $fee = $value;
                 $credit = new credit();
                 $credit->sale_id = $id_sale;
-                $credit->no_fee = 'Cuota '. $fee_aux;
+                $credit->no_fee = 'Cuota ' . $fee_aux;
                 $credit->statu_fee = 'PENDIENTE';
                 $credit->date_expiration_fee = $field_date_array[$fee];
                 $credit->price_fee = $item;
@@ -151,7 +160,7 @@ class saleController extends Controller
             }
         }
 
-        return redirect()->route('ventas')->with(['message' => 'Venta guardada correctemente']);
+        return redirect()->route('venta')->with(['message' => 'Venta guardada correctemente']);
     }
 
     /**
@@ -161,12 +170,18 @@ class saleController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+        $this->validate($request, [
+            'titulo_venta' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_venta' => ['required', 'date'],
+            'descripcion_venta' => ['required'],
+            'precio_venta' => ['required', 'numeric']
+        ]);
+
         //RECOGER DATOS DE FORMULRIO
-        $sale_target = $request->input('sale_target');
-        $sale_date = $request->input('sale_date');
-        $sale_description = $request->input('sale_description');
-        $sale_price = $request->input('sale_price');
+        $sale_target = $request->input('titulo_venta');
+        $sale_date = $request->input('fecha_venta');
+        $sale_description = $request->input('descripcion_venta');
+        $sale_price = $request->input('precio_venta');
 
         //cargar objrto
         $sale = sale::find($id);
@@ -175,6 +190,6 @@ class saleController extends Controller
         $sale->sale_description = $sale_description;
         $sale->sale_price = $sale_price;
         $sale->update();
-        return redirect()->route('venta.detalle', ['id'=>$id]);
+        return redirect()->route('venta.detalle', ['id' => $id]);
     }
 }

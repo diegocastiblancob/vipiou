@@ -86,7 +86,7 @@
             <table class="table mt-3">
                 <thead class="cabeza-tabla">
                     <tr>
-                        <th colspan="4">Proyectos </th>
+                        <th colspan="4">Tareas </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -125,10 +125,20 @@
                     @csrf
                     <div class="form-row mt-3">
                         <div class="input-group mb-3 col-md-6">
-                            <input id="name_customer" type="text" class="form-control @error('name_customer') is-invalid @enderror" name="name_customer" value="{{$customer->name_customer}}" required autocomplete="name_customer" autofocus>
+                            <input id="nombre_cliente" type="text" class="form-control @error('nombre_cliente') is-invalid @enderror" name="nombre_cliente" value="{{$customer->name_customer}}" required autofocus>
+                            @error('nombre_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="input-group mb-3 col-md-6">
-                            <input id="lastname_customer" type="text" class="form-control @error('lastname_customer') is-invalid @enderror" name="lastname_customer" value="{{$customer->lastname_customer}}" required autocomplete="lastname_customer" autofocus>
+                            <input id="apellido_cliente" type="text" class="form-control @error('apellido_cliente') is-invalid @enderror" name="apellido_cliente" value="{{$customer->lastname_customer}}" required autofocus>
+                            @error('apellido_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="input-group mb-3 col-md-2">
                             <input hidden id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{$customer->id}}" required autocomplete="id" autofocus>
@@ -136,49 +146,80 @@
                     </div>
                     <div class="form-row">
                         <div class="input-group mb-3 col-md-6" include="form-input-select()">
-                            <input id="identification_customer" type="text" class="form-control @error('identification_customer') is-invalid @enderror" name="identification_customer" value="{{$customer->identification_customer}}" required autocomplete="identification_customer" autofocus>
+                            <input id="identificacion_cliente" type="text" class="form-control @error('identificacion_cliente') is-invalid @enderror" name="identificacion_cliente" value="{{$customer->identification_customer}}" required autofocus>
+                            @error('identificacion_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="input-group mb-3 col-md-6">
-                            <input id="city_customer" type="text" class="form-control @error('city_customer') is-invalid @enderror" name="city_customer" value="{{$customer->city_customer}}" required autocomplete="city_customer" autofocus>
+                            <input id="ciudad_cliente" type="text" class="form-control @error('ciudad_cliente') is-invalid @enderror" name="ciudad_cliente" value="{{$customer->city_customer}}" required autofocus>
+                            @error('ciudad_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-group mb-3 col-md-6">
-                            <input id="address_customer" type="text" class="form-control @error('address_customer') is-invalid @enderror" name="address_customer" value="{{$customer->address_customer}}" required autocomplete="address_customer" autofocus>
+                            <input id="direccion_cliente" type="text" class="form-control @error('direccion_cliente') is-invalid @enderror" name="direccion_cliente" value="{{$customer->address_customer}}" required autofocus>
+                            @error('direccion_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="input-group mb-3 col-md-6">
-                            <input id="phone_customer" type="text" class="form-control @error('phone_customer') is-invalid @enderror" name="phone_customer" value="{{$customer->phone_customer}}" required autocomplete="phone_customer" autofocus>
+                            <input id="telefono_cliente" type="text" class="form-control @error('telefono_cliente') is-invalid @enderror" name="telefono_cliente" value="{{$customer->phone_customer}}" required autofocus>
+                            @error('telefono_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-group mb-3 col-md-6">
                             <input id="email_customer" type="text" class="form-control @error('email_customer') is-invalid @enderror" name="email_customer" value="{{$customer->email_customer}}" required autocomplete="email_customer" autofocus>
+                            @error('email_customer')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="input-group mb-3 col-md-6">
-                            <input id="company_customer" type="text" class="form-control @error('company_customer') is-invalid @enderror" name="company_customer" value="{{$customer->company_customer}}" required autocomplete="company_customer" autofocus>
+                            <input id="empresa_cliente" type="text" class="form-control @error('empresa_cliente') is-invalid @enderror" name="empresa_cliente" value="{{$customer->company_customer}}" required autofocus>
+                            @error('empresa_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-group mb-3 col-md-6">
-                            <input id="website_customer" type="text" class="form-control @error('website_customer') is-invalid @enderror" name="website_customer" value="{{$customer->website_customer}}" required autocomplete="website_customer" autofocus>
+                            <input id="website_cliente" type="text" class="form-control @error('website_cliente') is-invalid @enderror" name="website_cliente" value="{{$customer->website_customer}}" required autofocus>
+                            @error('website_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="input-group mb-3 col-md-6">
-                            <select id="status_customer" type="text" class="form-control @error('status_customer') is-invalid @enderror" name="status_customer" value="{{$customer->status_customer}}" required>
-                                <option value="0" hidden>Estado Del Cliente</option>
+                            <select id="estado_cliente" type="text" class="form-control @error('estado_cliente') is-invalid @enderror" name="estado_cliente" value="{{$customer->status_customer}}" required>
+                                <option value="" hidden>Estado Del Cliente</option>
                                 <option value="2">Cliente</option>
                                 <option value="3">Cliente potencial</option>
                             </select>
+                            @error('estado_cliente')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
-
-                    <!--  <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="check_propuesta" name="check_propuesta">
-                        <label class="form-check-label text-light" for="gridCheck">
-                            Deseo asociar una propuesta comercial
-                        </label>
-                    </div>
-                </div> -->
                     <button type="submit" class="btn btn-primary float-right">Agregar cliente</button>
                 </form>
             </div>
