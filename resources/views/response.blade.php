@@ -8,11 +8,11 @@
             <h3 class="mt-3 mb-2">Resumen Transacción</h3>
             <table class="table">
                 <tr>
-                    <td>Estado de la transaccion</td>
+                    <td>Estado de la transacción</td>
                     <td>{{$estadoTx}}</td>
                 </tr>
                 <tr>
-                    <td>ID de la transaccion</td>
+                    <td>ID de la transacción</td>
                     <td>{{$transactionId}}</td>
                 </tr>
                 <tr>
@@ -20,7 +20,7 @@
                     <td>{{$reference_pol}}</td>
                 </tr>
                 <tr>
-                    <td>Referencia de la transaccion</td>
+                    <td>Referencia de la transacción</td>
                     <td>{{$referenceCode}}</td>
                 </tr>
                 @if ($pseBank != null)

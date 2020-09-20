@@ -10,7 +10,7 @@
                 <thead class="cabeza-tabla">
                     <tr>
                         <th scope="col">Cliente</th>
-                        <th scope="col">Titulo</th>
+                        <th scope="col">Título</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Fecha</th>
                     </tr>

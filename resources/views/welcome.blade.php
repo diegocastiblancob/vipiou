@@ -88,7 +88,7 @@
                         <li class="list-group-item mb-2 active">Introducción</li>
                         <li class="list-group-item mb-2">Seguimiento a clientes</li>
                         <li class="list-group-item mb-2">Estados de los tareas</li>
-                        <li class="list-group-item mb-2">Contratos</li>
+                        <li class="list-group-item mb-2">Ventas</li>
                         <li class="list-group-item mb-2">Ingresos</li>
                         <li class="list-group-item mb-2">Egresos</li>
                         <li class="list-group-item mb-2">Consultas</li>

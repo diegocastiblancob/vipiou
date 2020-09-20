@@ -12,11 +12,11 @@
                     <tr>
                         <th scope="col">Cliente</th>
                         <td>{{$proposal->customer->name_customer}} {{$proposal->customer->lastname_customer}}</td>
-                        <th scope="col">Fecha de envio</th>
+                        <th scope="col">Fecha de envío</th>
                         <td scope="col">{{$proposal->date_proposal}}</td>
                     </tr>
                     <tr>
-                        <th scope="col">Titulo</th>
+                        <th scope="col">Título</th>
                         <td colspan="3">{{$proposal->title_proposal}}</td>
                     </tr>
                     <tr>
@@ -42,7 +42,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Próximas actividades</th>
-                        <th scope="col">Fecha de notificacion</th>
+                        <th scope="col">Fecha de notificación</th>
                         <th></th>
                         <th></th>
                     </tr>

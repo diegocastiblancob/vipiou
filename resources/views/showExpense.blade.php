@@ -21,7 +21,7 @@
                         <td scope="col">{{$expense->name_type_expense}}</td>
                     </tr>
                     <tr>
-                        <th scope="col">Descripcion</th>
+                        <th scope="col">Descripción</th>
                         <td scope="col">{{$expense->description_expense}}</td>
                     </tr>
                     <tr>
@@ -57,26 +57,46 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                        <label for="">Concepto</label>
-                            <input id="title_expense" type="text" class="form-control @error('title_expense') is-invalid @enderror" name="title_expense" value="{{$expense->title_expense}}" required autocomplete="title_expense" autofocus>
+                            <label for="">Concepto</label>
+                            <input id="titulo_egreso" type="text" class="form-control @error('titulo_egreso') is-invalid @enderror" name="titulo_egreso" value="{{$expense->title_expense}}" required autofocus>
+                            @error('titulo_egreso')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
-                        <label for="">Fecha del egreso</label>
-                            <input id="date_expense" type="date" class="form-control" name="date_expense" value="{{$expense->date_expense}}" required>
+                            <label for="">Fecha del egreso</label>
+                            <input id="fecha_egreso" type="date" class="form-control" name="fecha_egreso" value="{{$expense->date_expense}}" required>
+                            @error('fecha_egreso')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                        <label for="">Monto del egreso</label>
-                            <input id="price_expense" type="text" class="form-control @error('price_expense') is-invalid @enderror" name="price_expense" value="{{$expense->price_expense}}" required autocomplete="price_expense" autofocus>
+                            <label for="">Monto del egreso</label>
+                            <input id="precio_egreso" type="text" class="form-control @error('precio_egreso') is-invalid @enderror" name="precio_egreso" value="{{$expense->price_expense}}" required autofocus>
+                            @error('precio_egreso')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-check col-md-6">
-                        <label for="">Estado de egreso</label>
+                            <label for="">Estado de egreso</label>
                             <select class="form-control" id="status_expense" name="status_expense" required>
                                 <option value="{{$expense->status_expense}}" hidden>{{$expense->status_expense}}</option>
                                 <option value="PENDIENTE">PENDIENTE</option>
                                 <option value="PAGADO">PAGADO</option>
                             </select>
+                            @error('status_expense')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Actualizar Egreso</button>

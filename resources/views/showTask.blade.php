@@ -14,7 +14,7 @@
                         <td scope="col">{{$task->date_task}}</td>
                     </tr>
                     <tr>
-                        <th scope="col">Titulo</th>
+                        <th scope="col">Título</th>
                         <td colspan="3">{{$task->title_task}}</td>
                     </tr>
                     <tr>
@@ -32,7 +32,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Actividades</th>
-                        <th scope="col">Fecha de notificacion</th>
+                        <th scope="col">Fecha de notificación</th>
                         <th>Editar</th>
                     </tr>
                 </thead>

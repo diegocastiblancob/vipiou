@@ -44,7 +44,7 @@
             <table class="table mt-3">
                 <thead class="cabeza-tabla">
                     <tr>
-                        <th colspan="4">Contratos</th>
+                        <th colspan="4">Ventas</th>
                     </tr>
                 </thead>
                 <tbody>

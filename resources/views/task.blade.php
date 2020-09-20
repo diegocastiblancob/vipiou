@@ -89,7 +89,7 @@
                 <div class="field_wrapper">
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <input type="text" class="form-control" name="field_action[]" placeholder="Proxima actividad">
+                            <input type="text" class="form-control" name="field_action[]" placeholder="Próxima actividad">
                         </div>
                     </div>
                     <div class="form-row">
@@ -113,7 +113,7 @@
         var maxField = 12; //Input fields increment limitation
         var addButton = $('.add_button'); //Add button selector
         var wrapper = $('.field_wrapper'); //Input field wrapper
-        var fieldHTML = '<div class="form-row"><div class="form-group col-md-12"><input type="text" class="form-control" name="field_action[]" placeholder="Proxima actividad"></div></div><div class="form-row"><div class="form-group col-md-12"><input type="date" class="form-control" name="field_date[]"></div></div>'; //New input field html 
+        var fieldHTML = '<div class="form-row"><div class="form-group col-md-12"><input type="text" class="form-control" name="field_action[]" placeholder="Próxima actividad"></div></div><div class="form-row"><div class="form-group col-md-12"><input type="date" class="form-control" name="field_date[]"></div></div>'; //New input field html 
         var x = 1; //Initial field counter is 1
         $(addButton).click(function() { //Once add button is clicked
             if (x < maxField) { //Check maximum number of input fields

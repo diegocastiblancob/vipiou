@@ -23,13 +23,13 @@
                         <td scope="col">{{$sale->sale_price}}</td>
                     </tr>
                     <tr>
-                        <th scope="col">Descripcion</th>
+                        <th scope="col">Descripción</th>
                         <td scope="col">{{$sale->sale_description}}</td>
                     </tr>
                     <tr>
                         <th scope="col">Financiación</th>
                         <td scope="col">{{$sale->sale_credit}}</td>
-                        <th scope="col">Numero Cuotas</th>
+                        <th scope="col">Número de cuotas</th>
                         <td scope="col">{{$sale->no_fees}}</td>
                     </tr>
                 </thead>

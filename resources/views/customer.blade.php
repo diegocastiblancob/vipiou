@@ -58,7 +58,7 @@
             @endif
             <form method="POST" action="{{ route('cliente.crear') }}">
                 @csrf
-                <h3 class="text-light text-center">Registrar datos del nuevo cliente</h3>
+                <h3 class="text-light text-center">Datos personales</h3>
                 <div class="form-row mt-3">
                     <div class="input-group mb-3 col-md-6">
                         <input id="nombre_cliente" type="text" class="form-control @error('nombre_cliente') is-invalid @enderror" name="nombre_cliente" placeholder="Nombre del cliente" required autocomplete="nombre_cliente" autofocus>
@@ -163,10 +163,10 @@
                     </div>
                 </div>
                 <div id="propuesta" style="display:none">
-                    <h3 class="text-light text-center">Detalle de propuesta comercial</h3>
+                    <h3 class="text-light text-center">Detalle de la propuesta</h3>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="titulo_propuesta" type="text" class="form-control @error('titulo_propuesta') is-invalid @enderror" name="titulo_propuesta" placeholder="Titulo de la propuesta" autocomplete="titulo_propuesta" autofocus>
+                            <input id="titulo_propuesta" type="text" class="form-control @error('titulo_propuesta') is-invalid @enderror" name="titulo_propuesta" placeholder="Título de la propuesta" autocomplete="titulo_propuesta" autofocus>
                             @error('titulo_propuesta')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -195,7 +195,7 @@
                     <div class="field_wrapper">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="field_action[]" placeholder="Proxima acción">
+                                <input type="text" class="form-control" name="field_action[]" placeholder="Próxima acción">
                             </div>
                             <div class="form-group col-md-5">
                                 <input type="date" class="form-control" name="field_date[]">
@@ -310,7 +310,7 @@
         var maxField = 12; //Input fields increment limitation
         var addButton = $('.add_button'); //Add button selector
         var wrapper = $('.field_wrapper'); //Input field wrapper
-        var fieldHTML = '<div class="form-row"><div class="form-group col-md-6"><input type="text" class="form-control" name="field_action[]" placeholder="Proxima acción"></div><div class="form-group col-md-5"><input type="date" class="form-control" name="field_date[]"></div><div class="form-group col-md-1"><a href="javascript:void(0);" class="remove_button" title="Remove field">-</a></div></div>'; //New input field html 
+        var fieldHTML = '<div class="form-row"><div class="form-group col-md-6"><input type="text" class="form-control" name="field_action[]" placeholder="Próxima acción"></div><div class="form-group col-md-5"><input type="date" class="form-control" name="field_date[]"></div><div class="form-group col-md-1"><a href="javascript:void(0);" class="remove_button" title="Remove field">-</a></div></div>'; //New input field html 
         var x = 1; //Initial field counter is 1
         $(addButton).click(function() { //Once add button is clicked
             if (x < maxField) { //Check maximum number of input fields

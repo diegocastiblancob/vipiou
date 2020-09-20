@@ -73,15 +73,22 @@ class expenseController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'categoria' => ['required'],
+            'titulo_egreso' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_egreso' => ['required', 'date'],
+            'descripcion_egreso' => ['required'],
+            'precio_egreso' => ['required', 'numeric']
+        ]);
         //usuario logueado
         $user = Auth::user();
         $id = $user->id;
 
-        $name_type_expense = $request->input('name_type_expense');
-        $title_expense = $request->input('title_expense');
-        $date_expense = $request->input('date_expense');
-        $description_expense = $request->input('description_expense');
-        $price_expense = $request->input('price_expense');
+        $name_type_expense = $request->input('categoria');
+        $title_expense = $request->input('titulo_egreso');
+        $date_expense = $request->input('fecha_egreso');
+        $description_expense = $request->input('descripcion_egreso');
+        $price_expense = $request->input('precio_egreso');
         $status_expense = $request->input('status_expense');
 
         $expense = new expense();
@@ -110,9 +117,16 @@ class expenseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $title_expense = $request->input('title_expense');
-        $date_expense = $request->input('date_expense');
-        $price_expense = $request->input('price_expense');
+        $this->validate($request, [
+            'titulo_egreso' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_egreso' => ['required', 'date'],
+            'precio_egreso' => ['required', 'numeric'],
+            'status_expense' => ['required']
+        ]);
+
+        $title_expense = $request->input('titulo_egreso');
+        $date_expense = $request->input('fecha_egreso');
+        $price_expense = $request->input('precio_egreso');
         $status_expense = $request->input('status_expense');
 
         $expense = expense::find($id);
@@ -120,7 +134,7 @@ class expenseController extends Controller
         $expense->date_expense = $date_expense;
         $expense->price_expense = $price_expense;
         $expense->status_expense = $status_expense;
-
+        
         $expense->update();
 
         return redirect()->route('egreso.detalle', ['id' => $id])->with(['message' => 'Egreso actualizado correctemente']);

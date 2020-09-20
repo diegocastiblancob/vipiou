@@ -9,7 +9,7 @@
                 <thead class="cabeza-tabla">
                     <tr>
                         <th scope="col">Cliente</th>
-                        <th scope="col">Titulo</th>
+                        <th scope="col">Título</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Fecha</th>
                     </tr>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="titulo_propuesta" type="text" class="form-control @error('titulo_propuesta') is-invalid @enderror" name="titulo_propuesta" placeholder="Titulo de la propuesta" required autocomplete="titulo_propuesta" autofocus>
+                        <input id="titulo_propuesta" type="text" class="form-control @error('titulo_propuesta') is-invalid @enderror" name="titulo_propuesta" placeholder="Título de la propuesta" required autocomplete="titulo_propuesta" autofocus>
                         @error('titulo_propuesta')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -90,7 +90,7 @@
                 <div class="field_wrapper">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" name="field_action[]" placeholder="Proxima acción">
+                            <input type="text" class="form-control" name="field_action[]" placeholder="Próxima acción">
                         </div>
                         <div class="form-group col-md-5">
                             <input type="date" class="form-control" name="field_date[]">
@@ -111,7 +111,7 @@
         var maxField = 12; //Input fields increment limitation
         var addButton = $('.add_button'); //Add button selector
         var wrapper = $('.field_wrapper'); //Input field wrapper
-        var fieldHTML = '<div class="form-row"><div class="form-group col-md-6"><input type="text" class="form-control" name="field_action[]" placeholder="Proxima acción"></div><div class="form-group col-md-5"><input type="date" class="form-control" name="field_date[]"></div><div class="form-group col-md-1"><a href="javascript:void(0);" class="remove_button" title="Remove field">-</a></div></div>'; //New input field html 
+        var fieldHTML = '<div class="form-row"><div class="form-group col-md-6"><input type="text" class="form-control" name="field_action[]" placeholder="Próxima acción"></div><div class="form-group col-md-5"><input type="date" class="form-control" name="field_date[]"></div><div class="form-group col-md-1"><a href="javascript:void(0);" class="remove_button" title="Remove field">-</a></div></div>'; //New input field html 
         var x = 1; //Initial field counter is 1
         $(addButton).click(function() { //Once add button is clicked
             if (x < maxField) { //Check maximum number of input fields

@@ -62,14 +62,20 @@ class incomeController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'titulo_ingreso' => ['required', 'regex:/^[\pL\s\-]+$/u', 'max:150'],
+            'fecha_ingreso' => ['required', 'date'],
+            'descripcion_ingreso' => ['required'],
+            'precio_ingreso' => ['required', 'numeric']
+        ]);
         //usuario logueado
         $user = Auth::user();
         $id = $user->id;
 
-        $target_income = $request->input('target_income');
-        $date_income = $request->input('date_income');
-        $description_income = $request->input('description_income');
-        $price_income = $request->input('price_income');
+        $target_income = $request->input('titulo_ingreso');
+        $date_income = $request->input('fecha_ingreso');
+        $description_income = $request->input('descripcion_ingreso');
+        $price_income = $request->input('precio_ingreso');
 
         $otherincome = new otherincome();
         $otherincome->user_id = $id;

@@ -18,16 +18,15 @@
                 </thead>
                 <tbody>
                     @foreach($expenses as $expense)
-                    @if($loop->index < 4)
-                    <tr>
+                    @if($loop->index < 4) <tr>
                         <th>{{$expense->title_expense}}</th>
                         <td>{{$expense->name_type_expense}}</td>
                         <td>{{$expense->price_expense}}</td>
                         <td>{{$expense->status_expense}}</td>
                         <td>{{$expense->date_expense}}</td>
-                    </tr>
-                    @endif
-                    @endforeach
+                        </tr>
+                        @endif
+                        @endforeach
                 </tbody>
             </table>
             <a href="{{route('egresos')}}" class="btn btn-entrar mb-5 float-right">Ver todos los egresos</a>
@@ -47,34 +46,58 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="" class="text-light">Selecionar Categoria</label>
-                        <select class="form-control" id="name_type_expense" name="name_type_expense" required>
+                        <select class="form-control" id="categoria" name="categoria" required>
                             <option value="" hidden></option>
                             <option value="Servicios">Servicios</option>
                             @foreach($typesExpenses as $typesExpense)
                             <option value="{{$typesExpense->name_type_expenses}}">{{$typesExpense->name_type_expenses}}</option>
                             @endforeach
                         </select>
+                        @error('categoria')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                         <button type="button" class="btn text-light" data-toggle="modal" data-target="#categoriaModal">Agregar
                             nueva categoria</button>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="title_expense" type="text" class="form-control @error('title_expense') is-invalid @enderror" name="title_expense" placeholder="Concepto del egreso" required autocomplete="title_expense" autofocus>
+                        <input id="titulo_egreso" type="text" class="form-control @error('titulo_egreso') is-invalid @enderror" name="titulo_egreso" placeholder="Concepto del egreso" required autocomplete="título_egreso" autofocus>
+                        @error('titulo_egreso')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <input id="date_expense" type="date" class="form-control" name="date_expense" required>
+                        <input id="fecha_egreso" type="date" class="form-control" name="fecha_egreso" required>
+                        @error('fecha_egreso')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <textarea id="description_expense" rows="4" class="form-control @error('description_expense') is-invalid @enderror" name="description_expense" required>
-                        </textarea>
+                        <textarea id="descripcion_egreso" rows="4" class="form-control @error('descripcion_egreso') is-invalid @enderror" name="descripcion_egreso" required></textarea>
+                        @error('descripcion_egreso')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <input id="price_expense" type="text" class="form-control @error('price_expense') is-invalid @enderror" name="price_expense" placeholder="Monto del egreso" required autocomplete="price_expense" autofocus>
+                        <input id="precio_egreso" type="text" class="form-control @error('precio_egreso') is-invalid @enderror" name="precio_egreso" placeholder="Monto del egreso" required autocomplete="precio_egreso" autofocus>
+                        @error('precio_egreso')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group">
@@ -115,7 +138,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="">Descripcion de nueva categoria</label>
+                            <label for="">Descripción de nueva categoria</label>
                             <textarea id="description_type_expenses" class="form-control @error('description_type_expenses') is-invalid @enderror" name="description_type_expenses" required></textarea>
                         </div>
                     </div>
